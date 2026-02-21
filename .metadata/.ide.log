@@ -284,3 +284,4 @@
 2026-02-21 12:45:08,028 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
 2026-02-21 12:45:08,096 [INFO] ApiDb:448 - Save user favorites file C:\Users\ASUS/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2026-02-21 12:45:08,097 [INFO] ApiDb:452 - User favorites MCUs=[]
+2026-02-21 13:56:48,953 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
