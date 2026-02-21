@@ -17,6 +17,8 @@
  */
 
 #include <stdint.h>
+#define ADC_BASE_ADD 0x58026000UL
+#define ADC_CR1_REG_OFFSET
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
