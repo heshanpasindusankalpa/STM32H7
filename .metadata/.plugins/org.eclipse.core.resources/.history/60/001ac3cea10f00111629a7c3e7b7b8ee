@@ -30,9 +30,9 @@ int main(void)
     /* Loop forever */
 
 	uint32_t  *pAdcCrlReg = (uint32_t*) ADC_CR1_REG_ADDR;
-	uint32_t *pRccApb4Enr=(uint32_t*)RCC_APB4_ENR_ADDR;
+	uint_t *pRccApb4Enr=(uint32_t*)RCC_APB4_ENR_ADDR;
 
-	*pRccApb4Enr |=(1<<24);
+	*pRccApb4Enr |=(1<<25);
 	*pAdcCrlReg |= (1 << 0);
 	for(;;);
 }

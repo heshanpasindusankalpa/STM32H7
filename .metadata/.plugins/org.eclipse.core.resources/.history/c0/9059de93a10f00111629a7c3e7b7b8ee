@@ -20,19 +20,13 @@
 #define ADC_BASE_ADDR          0x58026000UL
 #define ADC_CR1_REG_OFFSET    0x08UL
 #define ADC_CR1_REG_ADDR      (ADC_BASE_ADDR +ADC_CR1_REG_OFFSET )
-#define RCC_BASE_ADDR         0x58024400UL
-#define RCC_APB4_EN_OFFSET       0x0E0UL
-#define RCC_APB4_ENR_ADDR    (RCC_BASE_ADDR+RCC_APB4_EN_OFFSET)
+
 
 
 int main(void)
 {
     /* Loop forever */
-
 	uint32_t  *pAdcCrlReg = (uint32_t*) ADC_CR1_REG_ADDR;
-	uint32_t *pRccApb4Enr=(uint32_t*)RCC_APB4_ENR_ADDR;
-
-	*pRccApb4Enr |=(1<<24);
 	*pAdcCrlReg |= (1 << 0);
 	for(;;);
 }
