@@ -1,0 +1,53 @@
+#include <stdint.h>
+
+#define RCC_BASE_ADDR         0x58024400UL
+#define RCC_CFGR_REG_OFFSET   0x010UL
+#define RCC_CR_REG_OFFSET     0x000UL
+#define RCC_AHB4ENR_OFFSET    0x0E0UL
+
+#define RCC_CFGR_REG_ADDR     (RCC_BASE_ADDR+RCC_CFGR_REG_OFFSET)
+#define RCC_CR_REG_ADDR       (RCC_BASE_ADDR+RCC_CR_REG_OFFSET)
+#define RCC_AHB4ENR_ADDR      (RCC_BASE_ADDR+RCC_AHB4ENR_OFFSET)
+
+#define GPIOA_BASE_ADDR       0x58020000UL
+
+int main(void)
+{
+    uint32_t *pRccCrReg   = (uint32_t*)RCC_CR_REG_ADDR;
+    uint32_t *pRccCfgrReg = (uint32_t*)RCC_CFGR_REG_ADDR;
+    uint32_t *pRccAhb4Enr = (uint32_t*)RCC_AHB4ENR_ADDR;
+
+    // Enable GPIOA clock
+    *pRccAhb4Enr |= (1<<0);
+
+    // Enable HSE
+    *pRccCrReg |= (1<<16);
+
+    // Wait until HSE ready
+    while(!(*pRccCrReg & (1<<17)));
+
+    // Switch system clock to HSE
+    *pRccCfgrReg &= ~(0x7 << 0);
+    *pRccCfgrReg |=  (0x2 << 0);
+
+    while(((*pRccCfgrReg >> 3) & 0x7) != 0x2);
+
+    // Select HSE as MCO1 source
+    *pRccCfgrReg &= ~(0x7 << 22);
+    *pRccCfgrReg |=  (0x8 << 22);
+
+    // MCO1 prescaler /4
+    *pRccCfgrReg &= ~(0xF << 18);
+    *pRccCfgrReg |=  (0x2 << 18);
+
+    // PA8 alternate function
+    uint32_t *pGPIOAModeReg = (uint32_t*)(GPIOA_BASE_ADDR);
+    *pGPIOAModeReg &= ~(0x3 << 16);
+    *pGPIOAModeReg |=  (0x2 << 16);
+
+    // AFRH AF0 for PA8
+    uint32_t *pGPIOAAltFunHighReg = (uint32_t*)(GPIOA_BASE_ADDR + 0x24);
+    *pGPIOAAltFunHighReg &= ~(0xF << 0);
+
+    for(;;);
+}
