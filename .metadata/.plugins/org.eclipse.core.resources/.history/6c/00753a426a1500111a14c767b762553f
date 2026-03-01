@@ -36,11 +36,6 @@
 #define GPIOK_BASEADDR   0x58022800
 
 
-//APB1
-#define I2C1_BASEADDER   (APB1PERIPH_BASEADDER+0x5400)
 
-//APB2
-
-#define
 
 #endif /* INC_STM32H743VIT6_H_ */
