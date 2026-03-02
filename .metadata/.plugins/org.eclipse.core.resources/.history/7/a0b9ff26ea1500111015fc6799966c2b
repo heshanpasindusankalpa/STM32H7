@@ -8,10 +8,6 @@
 #ifndef INC_STM32H743VIT6_H_
 #define INC_STM32H743VIT6_H_
 
-#define __vo volatile
-
-#include <stdint.h>
-
 #define FLASB_BASEADDR     0x0800 0000U
 #define SRAM1_BASEADDR     0x3000 0000U
 #define SRAM2_BASEADDR     0x3002 0000U
@@ -50,22 +46,6 @@
 //APB4
 #define EXTI_BASEADDR    (APB2PERIPH_BASEADDR+)
 
-
-typedef struct
-{
-	__VO uint32_t MODER;  //GPIO port mode register
-	__VO uint32_t OTYPER; //GPIO port output type register
-	__VO uint32_t OSPEEDR;//GPIO port output speed register
-	__VO uint32_t PUPDR;  //GPIO port pull-up/pull-down register
-	__VO uint32_t IDR;    //GPIO port input data register
-	__VO uint32_t ODR;    //GPIO port output data register
-	__VO uint32_t BSRR;   //GPIO port bit set/reset register
-	__VO uint32_t LCKR;   //GPIO port configuration lock register
-	__VO uint32_t AFRL;   //GPIO alternate function low register
-	__VO uint32_t UFRH;   //GPIO alternate function high register
-
-
-
-}GPIO_RegDef_t;
+#define
 
 #endif /* INC_STM32H743VIT6_H_ */
