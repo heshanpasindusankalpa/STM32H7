@@ -53,19 +53,48 @@
 
 typedef struct
 {
-	__VO uint32_t MODER;  //GPIO port mode register
-	__VO uint32_t OTYPER; //GPIO port output type register
-	__VO uint32_t OSPEEDR;//GPIO port output speed register
-	__VO uint32_t PUPDR;  //GPIO port pull-up/pull-down register
-	__VO uint32_t IDR;    //GPIO port input data register
-	__VO uint32_t ODR;    //GPIO port output data register
-	__VO uint32_t BSRR;   //GPIO port bit set/reset register
-	__VO uint32_t LCKR;   //GPIO port configuration lock register
-	__VO uint32_t AFRL;   //GPIO alternate function low register
-	__VO uint32_t UFRH;   //GPIO alternate function high register
+	__vo uint32_t MODER;  //GPIO port mode register
+	__vo uint32_t OTYPER; //GPIO port output type register
+	__vo uint32_t OSPEEDR;//GPIO port output speed register
+	__vo uint32_t PUPDR;  //GPIO port pull-up/pull-down register
+	__vo uint32_t IDR;    //GPIO port input data register
+	__vo uint32_t ODR;    //GPIO port output data register
+	__vo uint32_t BSRR;   //GPIO port bit set/reset register
+	__vo uint32_t LCKR;   //GPIO port configuration lock register
+	__vo uint32_t AFRL;   //GPIO alternate function low register
+	__vo uint32_t UFRH;   //GPIO alternate function high register
 
 
 
 }GPIO_RegDef_t;
+
+#define GPIOA  ((GPIO_RegDef_t*)GPIOA_BASEADDR)
+#define GPIOB  ((GPIO_RegDef_t*)GPIOB_BASEADDR)
+#define GPIOC  ((GPIO_RegDef_t*)GPIOC_BASEADDR)
+#define GPIOD  ((GPIO_RegDef_t*)GPIOD_BASEADDR)
+#define GPIOE  ((GPIO_RegDef_t*)GPIOE_BASEADDR)
+#define GPIOF  ((GPIO_RegDef_t*)GPIOF_BASEADDR)
+#define GPIOG  ((GPIO_RegDef_t*)GPIOG_BASEADDR)
+#define GPIOH  ((GPIO_RegDef_t*)GPIOH_BASEADDR)
+#define GPIOI  ((GPIO_RegDef_t*)GPIOI_BASEADDR)
+#define GPIOJ  ((GPIO_RegDef_t*)GPIOJ_BASEADDR
+#define GPIOK  ((GPIO_RegDef_t*)GPIOK_BASEADDR)
+
+typedef struct
+{
+	__vo uint32_t CR;
+	__vo uint32_t ICSCR;
+	__vo uint32_t HSICFGR;
+	__vo uint32_t CRRCR;
+	__vo uint32_t RESERVED0;
+	__vo uint32_t CSICFGR;
+	__vo uint32_t CFGR;
+	__vo uint32_t RESERVED1;
+	__vo uint32_t D1CFGR;
+	__vo uint32_t D2CFGR;
+	__vo uint32_t D3CFGR;
+	__vo uint32_t RESERVED2;
+
+}RCC_RegDef_t;
 
 #endif /* INC_STM32H743VIT6_H_ */
