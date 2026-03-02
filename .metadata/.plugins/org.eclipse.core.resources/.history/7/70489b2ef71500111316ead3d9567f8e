@@ -97,30 +97,4 @@ typedef struct
 
 }RCC_RegDef_t;
 
-
-//some generic macros
-#define ENBALE    1
-#define DISABLE   0
-#define SET       ENBALE
-#define RESET     DISABLE
-
-
 #endif /* INC_STM32H743VIT6_H_ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
