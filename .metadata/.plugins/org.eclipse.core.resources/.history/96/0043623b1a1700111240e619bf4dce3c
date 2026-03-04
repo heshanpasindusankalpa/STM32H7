@@ -58,35 +58,7 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx,uint8_t EnorDi)
 	}
 	else
 	{
-		if(pGPIOx==GPIOA)
-		{
-			GPIOA_PCLK_EN();
 
-		}else if(pGPIOx==GPIOB)
-		{
-			GPIOB_PCLK_EN();
-		}else if(pGPIOx==GPIOC)
-		{
-			GPIOC_PCLK_EN();
-		}else if(pGPIOx==GPIOD)
-		{
-			GPIOD_PCLK_EN();
-		}else if(pGPIOx==GPIOE)
-		{
-		    GPIOE_PCLK_EN();
-		}else if(pGPIOx==GPIOF)
-		{
-			GPIOF_PCLK_EN();
-		}else if(pGPIOx==GPIOG)
-		{
-			GPIOG_PCLK_EN();
-		}else if(pGPIOx==GPIOH)
-		{
-			GPIOH_PCLK_EN();
-		}else if(pGPIOx==GPIOI)
-		{
-			GPIOI_PCLK_EN();
-		}
 
 	}
 
@@ -94,12 +66,6 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx,uint8_t EnorDi)
 
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
-
-	//1.CONGIGURE THE MODE OF GPIO P
-	//2.configure the speed
-	//3.configure the pipd setting
-	//4.configure the optype
-	//5.configure the alt functionality
 
 }
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)

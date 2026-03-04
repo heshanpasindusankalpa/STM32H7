@@ -17,12 +17,12 @@
  */
 
 #include <stdint.h>
-#define ADC_BASE_ADDR          0x58026000UL
+#define ADC_BASE_ADDR         0x58026000UL
 #define ADC_CR1_REG_OFFSET    0x08UL
 #define ADC_CR1_REG_ADDR      (ADC_BASE_ADDR +ADC_CR1_REG_OFFSET )
 #define RCC_BASE_ADDR         0x58024400UL
-#define RCC_APB4_EN_OFFSET       0x0E0UL
-#define RCC_APB4_ENR_ADDR    (RCC_BASE_ADDR+RCC_APB4_EN_OFFSET)
+#define RCC_APB4_EN_OFFSET    0x0E0UL
+#define RCC_APB4_ENR_ADDR     (RCC_BASE_ADDR+RCC_APB4_EN_OFFSET)
 
 
 int main(void)
