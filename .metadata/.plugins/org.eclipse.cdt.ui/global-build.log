@@ -1,7 +1,7 @@
-21:07:01 **** Incremental Build of configuration Debug for project stm32h743vit6_drivers ****
+11:47:37 **** Incremental Build of configuration Debug for project Robot_Controller ****
 make -j8 all 
-arm-none-eabi-size  stm32h743vit6_drivers.elf 
+arm-none-eabi-size  Robot_Controller.elf 
    text	   data	    bss	    dec	    hex	filename
-    924	      0	   1568	   2492	    9bc	stm32h743vit6_drivers.elf
+    924	      0	   1568	   2492	    9bc	Robot_Controller.elf
 Finished building: default.size.stdout
  
