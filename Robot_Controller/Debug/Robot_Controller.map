@@ -281,7 +281,7 @@ Discarded input sections
  .text.GPIO_PeriClockControl
                 0x00000000      0x138 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .text.GPIO_Init
-                0x00000000       0x14 ./drivers/Src/stm32h743vit6_gpio_drivers.o
+                0x00000000      0x18e ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .text.GPIO_DeInit
                 0x00000000       0x14 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .text.GPIO_ReadFromInputPin
@@ -298,12 +298,12 @@ Discarded input sections
                 0x00000000       0x1e ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .text.GPIO_IRQHandling
                 0x00000000       0x16 ./drivers/Src/stm32h743vit6_gpio_drivers.o
- .debug_info    0x00000000      0x623 ./drivers/Src/stm32h743vit6_gpio_drivers.o
- .debug_abbrev  0x00000000      0x12b ./drivers/Src/stm32h743vit6_gpio_drivers.o
+ .debug_info    0x00000000      0x711 ./drivers/Src/stm32h743vit6_gpio_drivers.o
+ .debug_abbrev  0x00000000      0x14d ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_aranges
                 0x00000000       0x68 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_rnglists
-                0x00000000       0x4a ./drivers/Src/stm32h743vit6_gpio_drivers.o
+                0x00000000       0x4b ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_macro   0x00000000       0x80 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_macro   0x00000000      0xad8 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_macro   0x00000000       0x10 ./drivers/Src/stm32h743vit6_gpio_drivers.o
@@ -313,10 +313,10 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_macro   0x00000000       0x6a ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_macro   0x00000000      0x1df ./drivers/Src/stm32h743vit6_gpio_drivers.o
- .debug_macro   0x00000000      0x13a ./drivers/Src/stm32h743vit6_gpio_drivers.o
- .debug_macro   0x00000000       0x28 ./drivers/Src/stm32h743vit6_gpio_drivers.o
- .debug_line    0x00000000      0x630 ./drivers/Src/stm32h743vit6_gpio_drivers.o
- .debug_str     0x00000000     0x473a ./drivers/Src/stm32h743vit6_gpio_drivers.o
+ .debug_macro   0x00000000      0x176 ./drivers/Src/stm32h743vit6_gpio_drivers.o
+ .debug_macro   0x00000000       0x7c ./drivers/Src/stm32h743vit6_gpio_drivers.o
+ .debug_line    0x00000000      0x743 ./drivers/Src/stm32h743vit6_gpio_drivers.o
+ .debug_str     0x00000000     0x4a40 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .comment       0x00000000       0x44 ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .debug_frame   0x00000000      0x19c ./drivers/Src/stm32h743vit6_gpio_drivers.o
  .ARM.attributes
@@ -913,7 +913,7 @@ LOAD D:/Stm32cubeIDE/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.i
  .debug_rnglists
                 0x00000013       0x19 ./Startup/startup_stm32h743vitx.o
 
-.debug_macro    0x00000000     0x10d7
+.debug_macro    0x00000000     0x1113
  .debug_macro   0x00000000       0x6c ./Src/main.o
  .debug_macro   0x0000006c      0xad8 ./Src/main.o
  .debug_macro   0x00000b44       0x22 ./Src/main.o
@@ -922,16 +922,16 @@ LOAD D:/Stm32cubeIDE/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.i
  .debug_macro   0x00000c45      0x103 ./Src/main.o
  .debug_macro   0x00000d48       0x6a ./Src/main.o
  .debug_macro   0x00000db2      0x1df ./Src/main.o
- .debug_macro   0x00000f91      0x146 ./Src/main.o
+ .debug_macro   0x00000f91      0x182 ./Src/main.o
 
 .debug_line     0x00000000      0x4e0
  .debug_line    0x00000000      0x465 ./Src/main.o
  .debug_line    0x00000465       0x7b ./Startup/startup_stm32h743vitx.o
 
-.debug_str      0x00000000     0x430e
- .debug_str     0x00000000     0x42cf ./Src/main.o
-                               0x442a (size before relaxing)
- .debug_str     0x000042cf       0x3f ./Startup/startup_stm32h743vitx.o
+.debug_str      0x00000000     0x449a
+ .debug_str     0x00000000     0x445b ./Src/main.o
+                               0x45b6 (size before relaxing)
+ .debug_str     0x0000445b       0x3f ./Startup/startup_stm32h743vitx.o
                                  0x86 (size before relaxing)
 
 .comment        0x00000000       0x43

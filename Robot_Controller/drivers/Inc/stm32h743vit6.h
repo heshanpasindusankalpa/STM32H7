@@ -62,8 +62,7 @@ typedef struct
 	__vo uint32_t ODR;    //GPIO port output data register
 	__vo uint32_t BSRR;   //GPIO port bit set/reset register
 	__vo uint32_t LCKR;   //GPIO port configuration lock register
-	__vo uint32_t AFRL;   //GPIO alternate function low register
-	__vo uint32_t UFRH;   //GPIO alternate function high register
+	__vo uint32_t AFR[2];   //GPIO alternate function register
 
 
 
@@ -110,18 +109,28 @@ typedef struct
 
 
 //Clock Enable Macros for GPIOx peripherals
-#define GPIOA_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<0))
-#define GPIOB_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<1))
-#define GPIOC_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<2))
-#define GPIOD_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<3))
-#define GPIOE_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<4))
-#define GPIOF_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<5))
-#define GPIOG_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<6))
-#define GPIOH_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<7))
-#define GPIOI_PERI_CLOCK_ENABLE() ( RCC->APB4ENR |=(1<<8))
+#define GPIOA_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<0))
+#define GPIOB_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<1))
+#define GPIOC_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<2))
+#define GPIOD_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<3))
+#define GPIOE_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<4))
+#define GPIOF_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<5))
+#define GPIOG_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<6))
+#define GPIOH_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<7))
+#define GPIOI_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<8))
 
 
 
+//Clock Disable Macros for GPIOx peripherals
+#define GPIOA_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<0))
+#define GPIOB_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<1))
+#define GPIOC_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<2))
+#define GPIOD_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<3))
+#define GPIOE_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<4))
+#define GPIOF_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<5))
+#define GPIOG_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<6))
+#define GPIOH_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<7))
+#define GPIOI_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<8))
 
 
 //some generic macros

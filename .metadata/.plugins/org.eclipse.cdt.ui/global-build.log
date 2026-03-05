@@ -1,4 +1,4 @@
-11:47:37 **** Incremental Build of configuration Debug for project Robot_Controller ****
+07:19:04 **** Incremental Build of configuration Debug for project Robot_Controller ****
 make -j8 all 
 arm-none-eabi-size  Robot_Controller.elf 
    text	   data	    bss	    dec	    hex	filename
