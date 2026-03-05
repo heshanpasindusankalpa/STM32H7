@@ -132,11 +132,6 @@ typedef struct
 #define GPIOH_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<7))
 #define GPIOI_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<8))
 
-//macros to reset GPIOx peripherals
-#define GPIO_REG_RESET()
-
-
-
 
 //some generic macros
 #define ENABLE    1
