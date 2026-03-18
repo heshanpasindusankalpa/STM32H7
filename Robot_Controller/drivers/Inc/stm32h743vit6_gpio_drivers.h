@@ -5,8 +5,8 @@
  *      Author: ASUS
  */
 
-#ifndef INC_STM32H743VIT6_GPIO_DRIVER_H_
-#define INC_STM32H743VIT6_GPIO_DRIVER_H_
+#ifndef INC_STM32H743VIT6_GPIO_DRIVERS_H_
+#define INC_STM32H743VIT6_GPIO_DRIVERS_H_
 
 #include "stm32h743vit6.h"
 
@@ -33,10 +33,10 @@ typedef struct
 
 //@GPIO_PIN_NUMBERS
 //GPIO pin numbers
-#define GPIO_PIN_N0_0 0
-#define GPIO_PIN_N0_1 1
-#define GPIO_PIN_N0_2 2
-#define GPIO_PIN_N0_3 3
+#define GPIO_PIN_NO_0 0
+#define GPIO_PIN_NO_1 1
+#define GPIO_PIN_NO_2 2
+#define GPIO_PIN_NO_3 3
 
 
 

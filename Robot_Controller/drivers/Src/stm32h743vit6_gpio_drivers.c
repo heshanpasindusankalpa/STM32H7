@@ -25,7 +25,7 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx,uint8_t EnorDi)
 {
 	if(EnorDi==ENABLE)
 	{
-		if(pGPIOx==GPIOA)
+		if(pGPIOx == GPIOA)
 		{
 			GPIOA_PCLK_EN();
 
@@ -101,7 +101,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 	{
 		//the non interrupt mode
 		temp=pGPIOHandle->GPIO_PinConfig.GPIO_PinMode<<(2 *pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
-		pGPIOHandle->pGPIOx->MODER &=~(0x3<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);//clearing
+		pGPIOHandle->pGPIOx->MODER &=~(0x3<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));//clearing
 		pGPIOHandle->pGPIOx->MODER|=temp;
 
 	}else
@@ -111,14 +111,14 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 	temp=0;
 	//2.configure the speed
 	temp=pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
-	pGPIOHandle->pGPIOx->OSPEEDR &=~(0x3<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);//clearing
+	pGPIOHandle->pGPIOx->OSPEEDR &=~(0x3<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));//clearing
 	pGPIOHandle->pGPIOx->OSPEEDR|=temp;
 
 
 	temp=0;
 	//3.configure the pipd setting
 	temp=pGPIOHandle->GPIO_PinConfig.GPIO_PinPulPdControl<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
-	pGPIOHandle->pGPIOx->PUPDR &=~(0x3<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);//clearing
+	pGPIOHandle->pGPIOx->PUPDR &=~(0x3<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));//clearing
 	pGPIOHandle->pGPIOx->PUPDR|=temp;
 
 
@@ -177,21 +177,40 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 }
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx,uint8_t PinNumber)
 {
+	uint8_t value;
+	value=(uint8_t)((pGPIOx->IDR>>PinNumber)& 0x00000001);
+	return value;
 
 }
 uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
 {
+	uint16_t value;
+	value=(uint16_t)pGPIOx->IDR;
+	return value;
+
 
 }
 void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx,uint8_t PinNumber,uint8_t Value)
 {
+	if(Value ==GPIO_PIN_SET)
+	{
+		//write 1 to the output data reg at the bit field correcsponding pin num
+		pGPIOx->ODR |=(1<<PinNumber);
+
+	}else
+	{
+		//write 0
+		pGPIOx->ODR &=~(1<<PinNumber);
+	}
 
 }
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx,uint8_t Value){
+	pGPIOx->ODR=Value;
 
 }
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx,uint8_t PinNumber)
 {
+	pGPIOx->ODR ^=(1<<PinNumber);
 
 }
 

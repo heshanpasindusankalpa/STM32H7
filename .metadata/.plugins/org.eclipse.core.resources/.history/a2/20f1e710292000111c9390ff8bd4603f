@@ -1,0 +1,225 @@
+/*
+ * stm32h743vit6.h
+ *
+ *  Created on: Mar 4, 2026
+ *      Author: ASUS
+ */
+
+#ifndef INC_STM32H743VIT6_H_
+#define INC_STM32H743VIT6_H_
+
+#define __vo volatile
+
+#include <stdint.h>
+
+#define FLASH_BASEADDR     0x08000000U
+#define SRAM1_BASEADDR     0x30000000U
+#define SRAM2_BASEADDR     0x30020000U
+#define ROM                0x1FF00000U
+#define SRAM               SRAM1_BASEADDR
+
+
+#define PERIPH_BASE       0x40000000U
+#define APB1PERIPH_BASE   PERIPH_BASE
+#define APB2PERIPH_BASE   0x40010000U
+#define AHB1PERIPH_BASE   0x40020000U
+#define AHB2PERIPH_BASE   0x48021000U
+#define AHB3PERIPH_BASE   0x50000000U
+#define AHB4PERIPH_BASE   0x58000000U
+
+#define GPIOA_BASEADDR   0x58020000
+#define GPIOB_BASEADDR   0x58020400
+#define GPIOC_BASEADDR   0x58020800
+#define GPIOD_BASEADDR   0x58020C00
+#define GPIOE_BASEADDR   0x58021000
+#define GPIOF_BASEADDR   0x58021400
+#define GPIOG_BASEADDR   0x58021800
+#define GPIOH_BASEADDR   0x58021C00
+#define GPIOI_BASEADDR   0x58022000
+#define GPIOJ_BASEADDR   0x58022400
+#define GPIOK_BASEADDR   0x58022800
+
+#define RCC_BASEADDR    (AHB4PERIPH_BASE+0X24400)
+
+//APB1
+#define I2C1_BASEADDR   (APB1PERIPH_BASEADDER+0x5400)
+
+//APB2
+
+//APB3
+
+//APB4
+#define EXTI_BASEADDR    (APB2PERIPH_BASEADDR+0xD000)
+
+
+typedef struct
+{
+	__vo uint32_t MODER;  //GPIO port mode register
+	__vo uint32_t OTYPER; //GPIO port output type register
+	__vo uint32_t OSPEEDR;//GPIO port output speed register
+	__vo uint32_t PUPDR;  //GPIO port pull-up/pull-down register
+	__vo uint32_t IDR;    //GPIO port input data register
+	__vo uint32_t ODR;    //GPIO port output data register
+	__vo uint32_t BSRR;   //GPIO port bit set/reset register
+	__vo uint32_t LCKR;   //GPIO port configuration lock register
+	__vo uint32_t AFR[2];   //GPIO alternate function register
+
+
+
+}GPIO_RegDef_t;
+
+typedef struct
+{
+    __vo uint32_t CR;            // 0x000 Clock control register
+    __vo uint32_t ICSCR;         // 0x004 Internal clock sources calibration register
+    __vo uint32_t HSICFGR;       // 0x008 HSI configuration register
+    __vo uint32_t CRRCR;         // 0x00C Clock recovery RC register
+    __vo uint32_t RESERVED0;     // 0x010 Reserved
+    __vo uint32_t CSICFGR;       // 0x014 CSI configuration register
+    __vo uint32_t CFGR;          // 0x018 Clock configuration register
+    __vo uint32_t RESERVED1;     // 0x01C Reserved
+    __vo uint32_t D1CFGR;        // 0x020 Domain 1 clock configuration
+    __vo uint32_t D2CFGR;        // 0x024 Domain 2 clock configuration
+    __vo uint32_t D3CFGR;        // 0x028 Domain 3 clock configuration
+    __vo uint32_t RESERVED2;     // 0x02C Reserved
+
+    __vo uint32_t PLLCKSELR;     // 0x030 PLL clock source selection
+    __vo uint32_t PLLCFGR;       // 0x034 PLL configuration register
+    __vo uint32_t PLL1DIVR;      // 0x038 PLL1 division register
+    __vo uint32_t PLL1FRACR;     // 0x03C PLL1 fractional register
+    __vo uint32_t PLL2DIVR;      // 0x040 PLL2 division register
+    __vo uint32_t PLL2FRACR;     // 0x044 PLL2 fractional register
+    __vo uint32_t PLL3DIVR;      // 0x048 PLL3 division register
+    __vo uint32_t PLL3FRACR;     // 0x04C PLL3 fractional register
+
+    __vo uint32_t RESERVED3[2];  // 0x050 - 0x054 Reserved
+
+    __vo uint32_t D1CCIPR;       // 0x058 Domain1 peripheral clock selection
+    __vo uint32_t D2CCIP1R;      // 0x05C Domain2 peripheral clock selection 1
+    __vo uint32_t D2CCIP2R;      // 0x060 Domain2 peripheral clock selection 2
+    __vo uint32_t D3CCIPR;       // 0x064 Domain3 peripheral clock selection
+
+    __vo uint32_t RESERVED4;
+
+    __vo uint32_t CIER;          // Clock interrupt enable
+    __vo uint32_t CIFR;          // Clock interrupt flag
+    __vo uint32_t CICR;          // Clock interrupt clear
+
+    __vo uint32_t RESERVED5;
+
+    __vo uint32_t BDCR;          // Backup domain control
+    __vo uint32_t CSR;           // Control/status register
+
+    __vo uint32_t RESERVED6;
+
+    __vo uint32_t AHB3RSTR;      // AHB3 peripheral reset
+    __vo uint32_t AHB1RSTR;      // AHB1 peripheral reset
+    __vo uint32_t AHB2RSTR;      // AHB2 peripheral reset
+    __vo uint32_t AHB4RSTR;      // AHB4 peripheral reset
+    __vo uint32_t APB3RSTR;      // APB3 peripheral reset
+    __vo uint32_t APB1LRSTR;     // APB1L peripheral reset
+    __vo uint32_t APB1HRSTR;     // APB1H peripheral reset
+    __vo uint32_t APB2RSTR;      // APB2 peripheral reset
+    __vo uint32_t APB4RSTR;      // APB4 peripheral reset
+
+    __vo uint32_t RESERVED7;
+
+    __vo uint32_t AHB3ENR;       // AHB3 peripheral clock enable
+    __vo uint32_t AHB1ENR;       // AHB1 peripheral clock enable
+    __vo uint32_t AHB2ENR;       // AHB2 peripheral clock enable
+    __vo uint32_t AHB4ENR;       // AHB4 peripheral clock enable
+    __vo uint32_t APB3ENR;       // APB3 peripheral clock enable
+    __vo uint32_t APB1LENR;      // APB1L peripheral clock enable
+    __vo uint32_t APB1HENR;      // APB1H peripheral clock enable
+    __vo uint32_t APB2ENR;       // APB2 peripheral clock enable
+    __vo uint32_t APB4ENR;       // APB4 peripheral clock enable
+
+} RCC_RegDef_t;
+
+
+#define GPIOA  ((GPIO_RegDef_t*)GPIOA_BASEADDR)
+#define GPIOB  ((GPIO_RegDef_t*)GPIOB_BASEADDR)
+#define GPIOC  ((GPIO_RegDef_t*)GPIOC_BASEADDR)
+#define GPIOD  ((GPIO_RegDef_t*)GPIOD_BASEADDR)
+#define GPIOE  ((GPIO_RegDef_t*)GPIOE_BASEADDR)
+#define GPIOF  ((GPIO_RegDef_t*)GPIOF_BASEADDR)
+#define GPIOG  ((GPIO_RegDef_t*)GPIOG_BASEADDR)
+#define GPIOH  ((GPIO_RegDef_t*)GPIOH_BASEADDR)
+#define GPIOI  ((GPIO_RegDef_t*)GPIOI_BASEADDR)
+#define GPIOJ  ((GPIO_RegDef_t*)GPIOJ_BASEADDR)
+#define GPIOK  ((GPIO_RegDef_t*)GPIOK_BASEADDR)
+
+#define RCC    ((RCC_RegDef_t*)RCC_BASEADDR)
+
+//Clock Enable Macros for GPIOx peripherals
+
+
+
+
+//Clock Enable Macros for GPIOx peripherals
+#define GPIOA_PCLK_EN() ( RCC->AHB4ENR |=(1<<0))
+#define GPIOB_PCLK_EN() ( RCC->AHB4ENR |=(1<<1))
+#define GPIOC_PCLK_EN() ( RCC->AHB4ENR |=(1<<2))
+#define GPIOD_PCLK_EN() ( RCC->AHB4ENR |=(1<<3))
+#define GPIOE_PCLK_EN() ( RCC->AHB4ENR |=(1<<4))
+#define GPIOF_PCLK_EN() ( RCC->AHB4ENR |=(1<<5))
+#define GPIOG_PCLK_EN() ( RCC->AHB4ENR |=(1<<6))
+#define GPIOH_PCLK_EN() ( RCC->AHB4ENR |=(1<<7))
+#define GPIOI_PCLK_EN() ( RCC->AHB4ENR |=(1<<8))
+
+
+
+//Clock Disable Macros for GPIOx peripherals
+#define GPIOA_PCLK_DI() ( RCC->AHB4ENR &=~(1<<0))
+#define GPIOB_PCLK_DI() ( RCC->AHB4ENR &=~(1<<1))
+#define GPIOC_PCLK_DI() ( RCC->AHB4ENR &=~(1<<2))
+#define GPIOD_PCLK_DI() ( RCC->AHB4ENR &=~(1<<3))
+#define GPIOE_PCLK_DI() ( RCC->AHB4ENR &=~(1<<4))
+#define GPIOF_PCLK_DI() ( RCC->AHB4ENR &=~(1<<5))
+#define GPIOG_PCLK_DI() ( RCC->AHB4ENR &=~(1<<6))
+#define GPIOH_PCLK_DI() ( RCC->AHB4ENR &=~(1<<7))
+#define GPIOI_PCLK_DI() ( RCC->AHB4ENR &=~(1<<8))
+
+//macros to reset GPIOx peripherals
+#define GPIOA_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<0));( RCC->AHB4RSTR &=~(1<<0));}while(0)
+#define GPIOB_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<1));( RCC->AHB4RSTR &=~(1<<1));}while(0)
+#define GPIOC_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<2));( RCC->AHB4RSTR &=~(1<<2));}while(0)
+#define GPIOD_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<3));( RCC->AHB4RSTR &=~(1<<3));}while(0)
+#define GPIOE_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<4));( RCC->AHB4RSTR &=~(1<<4));}while(0)
+#define GPIOF_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<5));( RCC->AHB4RSTR &=~(1<<5));}while(0)
+#define GPIOG_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<6));( RCC->AHB4RSTR &=~(1<<6));}while(0)
+#define GPIOH_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<7));( RCC->AHB4RSTR &=~(1<<7));}while(0)
+#define GPIOI_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<8));( RCC->AHB4RSTR &=~(1<<8));}while(0)
+
+//some generic macros
+#define ENABLE    1
+#define DISABLE   0
+#define SET       ENABLE
+#define RESET     DISABLE
+#define GPIO_PIN_SET    SET
+#define GPIO_PIN_RESET  RESET
+
+
+#include "stm32h743vit6_gpio_drivers.h"
+
+#endif /* INC_STM32H743VIT6_H_ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

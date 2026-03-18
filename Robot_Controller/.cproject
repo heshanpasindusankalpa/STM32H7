@@ -162,7 +162,6 @@
 		<project id="Robot_Controller.null.1330581793" name="Robot_Controller"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.1193554985;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.1193554985.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1603374372;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.176231048">
@@ -179,5 +178,17 @@
 		<configuration configurationName="Release">
 			<resource resourceType="PROJECT" workspacePath="/Robot_Controller"/>
 		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="stm" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments>-j8</buildArguments>
+				<buildTarget>stm</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
 	</storageModule>
 </cproject>

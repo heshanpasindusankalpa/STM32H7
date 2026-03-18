@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../drivers/Src/stm32h743vit6_gpio_drivers.c 
+../drivers/Src/stm32h743vit6_gpio_drivers.c \
+../drivers/Src/stm32h743vit6_i2c_driver.c 
 
 OBJS += \
-./drivers/Src/stm32h743vit6_gpio_drivers.o 
+./drivers/Src/stm32h743vit6_gpio_drivers.o \
+./drivers/Src/stm32h743vit6_i2c_driver.o 
 
 C_DEPS += \
-./drivers/Src/stm32h743vit6_gpio_drivers.d 
+./drivers/Src/stm32h743vit6_gpio_drivers.d \
+./drivers/Src/stm32h743vit6_i2c_driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ drivers/Src/%.o drivers/Src/%.su drivers/Src/%.cyclo: ../drivers/Src/%.c drivers
 clean: clean-drivers-2f-Src
 
 clean-drivers-2f-Src:
-	-$(RM) ./drivers/Src/stm32h743vit6_gpio_drivers.cyclo ./drivers/Src/stm32h743vit6_gpio_drivers.d ./drivers/Src/stm32h743vit6_gpio_drivers.o ./drivers/Src/stm32h743vit6_gpio_drivers.su
+	-$(RM) ./drivers/Src/stm32h743vit6_gpio_drivers.cyclo ./drivers/Src/stm32h743vit6_gpio_drivers.d ./drivers/Src/stm32h743vit6_gpio_drivers.o ./drivers/Src/stm32h743vit6_gpio_drivers.su ./drivers/Src/stm32h743vit6_i2c_driver.cyclo ./drivers/Src/stm32h743vit6_i2c_driver.d ./drivers/Src/stm32h743vit6_i2c_driver.o ./drivers/Src/stm32h743vit6_i2c_driver.su
 
 .PHONY: clean-drivers-2f-Src
 

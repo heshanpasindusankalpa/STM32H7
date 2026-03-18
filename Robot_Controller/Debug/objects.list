@@ -1,5 +1,4 @@
-"./Src/main.o"
-"./Src/syscalls.o"
-"./Src/sysmem.o"
+"./Src/001led_toggle.o"
 "./Startup/startup_stm32h743vitx.o"
 "./drivers/Src/stm32h743vit6_gpio_drivers.o"
+"./drivers/Src/stm32h743vit6_i2c_driver.o"

@@ -12,7 +12,7 @@
 
 #include <stdint.h>
 
-#define FLASB_BASEADDR     0x08000000U
+#define FLASH_BASEADDR     0x08000000U
 #define SRAM1_BASEADDR     0x30000000U
 #define SRAM2_BASEADDR     0x30020000U
 #define ROM                0x1FF00000U
@@ -25,31 +25,33 @@
 #define AHB1PERIPH_BASE   0x40020000U
 #define AHB2PERIPH_BASE   0x48021000U
 #define AHB3PERIPH_BASE   0x50000000U
-#define AHB4PERIPH_BASE   0x58000000U
+#define AHB4PERIPH_BASE   0x58020000U
 
-#define GPIOA_BASEADDR   0x58020000
-#define GPIOB_BASEADDR   0x58020400
-#define GPIOC_BASEADDR   0x58020800
-#define GPIOD_BASEADDR   0x58020C00
-#define GPIOE_BASEADDR   0x58021000
-#define GPIOF_BASEADDR   0x58021400
-#define GPIOG_BASEADDR   0x58021800
-#define GPIOH_BASEADDR   0x58021C00
-#define GPIOI_BASEADDR   0x58022000
-#define GPIOJ_BASEADDR   0x58022400
-#define GPIOK_BASEADDR   0x58022800
+#define GPIOA_BASEADDR   0x58020000U
+#define GPIOB_BASEADDR   0x58020400U
+#define GPIOC_BASEADDR   0x58020800U
+#define GPIOD_BASEADDR   0x58020C00U
+#define GPIOE_BASEADDR   0x58021000U
+#define GPIOF_BASEADDR   0x58021400U
+#define GPIOG_BASEADDR   0x58021800U
+#define GPIOH_BASEADDR   0x58021C00U
+#define GPIOI_BASEADDR   0x58022000U
+#define GPIOJ_BASEADDR   0x58022400U
+#define GPIOK_BASEADDR   0x58022800U
 
-#define RCC_BASEADDR    (AHB4PERIPH_BASE+0X24400)
+#define RCC_BASEADDR    (AHB4PERIPH_BASE+0x4400)
 
 //APB1
-#define I2C1_BASEADDER   (APB1PERIPH_BASEADDER+0x57FF)
+#define I2C1_BASEADDR   (APB1PERIPH_BASEADDER+0x5400)
+#define I2C2_BASEADDR   (APB1PERIPH_BASEADDER+0x5800)
+#define I2C3_BASEADDR   (APB1PERIPH_BASEADDER+0x5C00)
 
 //APB2
 
 //APB3
 
 //APB4
-#define EXTI_BASEADDR    (APB2PERIPH_BASEADDR+)
+#define EXTI_BASEADDR    (APB2PERIPH_BASEADDR+0xD000)
 
 
 typedef struct
@@ -70,24 +72,90 @@ typedef struct
 
 typedef struct
 {
-	__vo uint32_t CR;       /*!<TODO,   Address offset:0x000*/
-	__vo uint32_t ICSCR;
-	__vo uint32_t HSICFGR;
-	__vo uint32_t CRRCR;
-	__vo uint32_t RESERVED0;
-	__vo uint32_t CSICFGR;
-	__vo uint32_t CFGR;
-	__vo uint32_t RESERVED1;
-	__vo uint32_t D1CFGR;
-	__vo uint32_t D2CFGR;
-	__vo uint32_t D3CFGR;
-	__vo uint32_t RESERVED2;
+    __vo uint32_t CR;          // 0x00
+    __vo uint32_t HSICFGR;     // 0x04
+    __vo uint32_t CRRCR;       // 0x08
+    __vo uint32_t CSICFGR;     // 0x0C
+    __vo uint32_t CFGR;        // 0x10
+    __vo uint32_t RESERVED1;   // 0x14
+    __vo uint32_t D1CFGR;      // 0x18
+    __vo uint32_t D2CFGR;      // 0x1C
+    __vo uint32_t D3CFGR;      // 0x20
+    __vo uint32_t RESERVED2;   // 0x24
 
-	__vo uint32_t APB4ENR;
+    __vo uint32_t PLLCKSELR;   // 0x28
+    __vo uint32_t PLLCFGR;     // 0x2C
+    __vo uint32_t PLL1DIVR;    // 0x30
+    __vo uint32_t PLL1FRACR;   // 0x34
+    __vo uint32_t PLL2DIVR;    // 0x38
+    __vo uint32_t PLL2FRACR;   // 0x3C
+    __vo uint32_t PLL3DIVR;    // 0x40
+    __vo uint32_t PLL3FRACR;   // 0x44
 
-}RCC_RegDef_t;
+    __vo uint32_t RESERVED3;   // 0x48
 
+    __vo uint32_t D1CCIPR;     // 0x4C
+    __vo uint32_t D2CCIP1R;    // 0x50
+    __vo uint32_t D2CCIP2R;    // 0x54
+    __vo uint32_t D3CCIPR;     // 0x58
 
+    __vo uint32_t RESERVED4;   // 0x5C
+
+    __vo uint32_t CIER;        // 0x60
+    __vo uint32_t CIFR;        // 0x64
+    __vo uint32_t CICR;        // 0x68
+
+    __vo uint32_t RESERVED5;   // 0x6C
+
+    __vo uint32_t BDCR;        // 0x70
+    __vo uint32_t CSR;         // 0x74
+
+    __vo uint32_t RESERVED6;   // 0x78
+
+    __vo uint32_t AHB3RSTR;    // 0x7C
+    __vo uint32_t AHB1RSTR;    // 0x80
+    __vo uint32_t AHB2RSTR;    // 0x84
+    __vo uint32_t AHB4RSTR;    // 0x88
+    __vo uint32_t APB3RSTR;    // 0x8C
+    __vo uint32_t APB1LRSTR;   // 0x90
+    __vo uint32_t APB1HRSTR;   // 0x94
+    __vo uint32_t APB2RSTR;    // 0x98
+    __vo uint32_t APB4RSTR;    // 0x9C
+
+    __vo uint32_t GCR;         // 0xA0
+    __vo uint32_t RESERVED8;   // 0xA4
+    __vo uint32_t D3AMR;       // 0xA8
+    __vo uint32_t RESERVED11[9]; // 0xAC–0xCC
+
+    __vo uint32_t RSR;         // 0xD0
+
+    __vo uint32_t AHB3ENR;     // 0xD4
+    __vo uint32_t AHB1ENR;     // 0xD8
+    __vo uint32_t AHB2ENR;     // 0xDC
+    __vo uint32_t AHB4ENR;     // 0xE0  ⭐ IMPORTANT
+    __vo uint32_t APB3ENR;     // 0xE4
+    __vo uint32_t APB1LENR;    // 0xE8
+    __vo uint32_t APB1HENR;    // 0xEC
+    __vo uint32_t APB2ENR;     // 0xF0
+    __vo uint32_t APB4ENR;     // 0xF4
+
+} RCC_RegDef_t;
+
+typedef struct
+{
+	__vo uint32_t CR1;
+	__vo uint32_t CR2;
+    __vo uint32_t OAR1;
+	__vo uint32_t OAR2;
+	__vo uint32_t TIMINGR;
+	__vo uint32_t TIMEOUTR;
+	__vo uint32_t ISR;
+	__vo uint32_t ICR;
+	__vo uint32_t PECR;
+	__vo uint32_t RXDR;
+	__vo uint32_t TXDR;
+
+}I2C_RegDef_t;
 
 #define GPIOA  ((GPIO_RegDef_t*)GPIOA_BASEADDR)
 #define GPIOB  ((GPIO_RegDef_t*)GPIOB_BASEADDR)
@@ -98,52 +166,66 @@ typedef struct
 #define GPIOG  ((GPIO_RegDef_t*)GPIOG_BASEADDR)
 #define GPIOH  ((GPIO_RegDef_t*)GPIOH_BASEADDR)
 #define GPIOI  ((GPIO_RegDef_t*)GPIOI_BASEADDR)
-#define GPIOJ  ((GPIO_RegDef_t*)GPIOJ_BASEADDR
+#define GPIOJ  ((GPIO_RegDef_t*)GPIOJ_BASEADDR)
 #define GPIOK  ((GPIO_RegDef_t*)GPIOK_BASEADDR)
 
 #define RCC    ((RCC_RegDef_t*)RCC_BASEADDR)
 
+#define I2C1    ((I2C_RegDef_t*)I2C1_BASEADDR)
+#define I2C2    ((I2C_RegDef_t*)I2C2_BASEADDR)
+#define I2C3    ((I2C_RegDef_t*)I2C3_BASEADDR)
 //Clock Enable Macros for GPIOx peripherals
 
 
 
 
 //Clock Enable Macros for GPIOx peripherals
-#define GPIOA_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<0))
-#define GPIOB_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<1))
-#define GPIOC_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<2))
-#define GPIOD_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<3))
-#define GPIOE_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<4))
-#define GPIOF_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<5))
-#define GPIOG_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<6))
-#define GPIOH_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<7))
-#define GPIOI_PERI_CLOCK_EN() ( RCC->APB4ENR |=(1<<8))
+#define GPIOA_PCLK_EN() ( RCC->AHB4ENR |=(1<<0))
+#define GPIOB_PCLK_EN() ( RCC->AHB4ENR |=(1<<1))
+#define GPIOC_PCLK_EN() ( RCC->AHB4ENR |=(1<<2))
+#define GPIOD_PCLK_EN() ( RCC->AHB4ENR |=(1<<3))
+#define GPIOE_PCLK_EN() ( RCC->AHB4ENR |=(1<<4))
+#define GPIOF_PCLK_EN() ( RCC->AHB4ENR |=(1<<5))
+#define GPIOG_PCLK_EN() ( RCC->AHB4ENR |=(1<<6))
+#define GPIOH_PCLK_EN() ( RCC->AHB4ENR |=(1<<7))
+#define GPIOI_PCLK_EN() ( RCC->AHB4ENR |=(1<<8))
 
-
+#define I2C1_PCLK_EN() ( RCC->APB1ENR |=(1<<21))
+#define I2C2_PCLK_EN() ( RCC->APB1ENR |=(1<<22))
+#define I2C3_PCLK_EN() ( RCC->APB1ENR |=(1<<23))
 
 //Clock Disable Macros for GPIOx peripherals
-#define GPIOA_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<0))
-#define GPIOB_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<1))
-#define GPIOC_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<2))
-#define GPIOD_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<3))
-#define GPIOE_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<4))
-#define GPIOF_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<5))
-#define GPIOG_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<6))
-#define GPIOH_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<7))
-#define GPIOI_PERI_CLOCK_DI() ( RCC->APB4ENR &=~(1<<8))
+#define GPIOA_PCLK_DI() ( RCC->AHB4ENR &=~(1<<0))
+#define GPIOB_PCLK_DI() ( RCC->AHB4ENR &=~(1<<1))
+#define GPIOC_PCLK_DI() ( RCC->AHB4ENR &=~(1<<2))
+#define GPIOD_PCLK_DI() ( RCC->AHB4ENR &=~(1<<3))
+#define GPIOE_PCLK_DI() ( RCC->AHB4ENR &=~(1<<4))
+#define GPIOF_PCLK_DI() ( RCC->AHB4ENR &=~(1<<5))
+#define GPIOG_PCLK_DI() ( RCC->AHB4ENR &=~(1<<6))
+#define GPIOH_PCLK_DI() ( RCC->AHB4ENR &=~(1<<7))
+#define GPIOI_PCLK_DI() ( RCC->AHB4ENR &=~(1<<8))
 
 //macros to reset GPIOx peripherals
-#define GPIO_REG_RESET()
-
-
-
+#define GPIOA_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<0));( RCC->AHB4RSTR &=~(1<<0));}while(0)
+#define GPIOB_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<1));( RCC->AHB4RSTR &=~(1<<1));}while(0)
+#define GPIOC_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<2));( RCC->AHB4RSTR &=~(1<<2));}while(0)
+#define GPIOD_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<3));( RCC->AHB4RSTR &=~(1<<3));}while(0)
+#define GPIOE_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<4));( RCC->AHB4RSTR &=~(1<<4));}while(0)
+#define GPIOF_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<5));( RCC->AHB4RSTR &=~(1<<5));}while(0)
+#define GPIOG_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<6));( RCC->AHB4RSTR &=~(1<<6));}while(0)
+#define GPIOH_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<7));( RCC->AHB4RSTR &=~(1<<7));}while(0)
+#define GPIOI_REG_RESET()    do{( RCC->AHB4RSTR |=(1<<8));( RCC->AHB4RSTR &=~(1<<8));}while(0)
 
 //some generic macros
 #define ENABLE    1
 #define DISABLE   0
 #define SET       ENABLE
 #define RESET     DISABLE
+#define GPIO_PIN_SET    SET
+#define GPIO_PIN_RESET  RESET
 
+
+#include "stm32h743vit6_gpio_drivers.h"
 
 #endif /* INC_STM32H743VIT6_H_ */
 
